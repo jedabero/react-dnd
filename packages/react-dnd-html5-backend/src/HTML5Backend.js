@@ -272,8 +272,9 @@ export default class HTML5Backend {
 
 	isNodeInDocument(node) {
 		// Check the node either in the main document or in the current context
+		const doc = this.window.document || document;
 		return document.body.contains(node) || this.window
-			? this.window.document.body.contains(node)
+			? doc.body.contains(node)
 			: false
 	}
 
